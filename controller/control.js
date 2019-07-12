@@ -5,8 +5,6 @@ var jsonwebToken = require('jsonwebtoken')
 var testfile = 'testfile.txt'
 var error_message = require('../const/error_message')
 var fs = require('fs')
-var base64Img = require('base64-img')
-var buffer = require('buffer')
 
 
 exports.new_file = () => {

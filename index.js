@@ -3,7 +3,6 @@ var bodyParser = require('body-parser');
 var moment = require('moment')
 var logger = require('morgan')
 var fs = require('fs')
-var multer = require('multer')
 var path = require('path')
 var app = express();
 var port = 3003
@@ -34,18 +33,7 @@ app.use(function (req, res, next) {
     next()
 });
 
-app.post("/upload", multer({dest: "./uploads/"}).array("uploads", 12), function(req, res) {
-    var fileInfo = [];
-    for(var i = 0; i < req.files.length; i++) {
-        fileInfo.push({
-            "originalName": req.files[i].originalName,
-            "size": req.files[i].size,
-            "b64": new Buffer(fs.readFileSync(req.files[i].path)).toString("base64")
-        });
-        fs.unlink(req.files[i].path);
-    }
-    res.send(req.files);
-});
+
 
 app.use(logger('dev'))
 var accessLogStream = fs.createWriteStream(path.join(__dirname, `logs`,`'${date}'.log`), { flags: 'a' })
