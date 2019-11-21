@@ -14,11 +14,13 @@ var errorMessage = {
   'err_wrong_login': { 'success': false, 'error_code': '20012', 'error_message': 'Wrong login. Please reset password.' },
   'err_update_not_found':{'success':false,'error_code':'20007','error_message':'ไม่พบผู้ใช้งานที่ต้องการอัพเดท'},
   'err_product_info' : {'success': false, 'error_code' : '20013', 'error_message': 'ไม่พบข้อมูลสินค้า'},
+  'err_accouct_not_found': { 'success': false, 'error_code': '20014', 'error_message': 'ไม่พบข้อมูลบัญชีนี้' },
 
 
     // Token 30+000
   'err_token_expire': { 'success': false, 'error_code': '30001', 'error_message': 'Authentication Failed. Token Expire.' },
   'err_token_fingerprint_expire': { 'success': false, 'error_code': '30002', 'error_message': 'Authentication Failed. Token Fingerprint Expire.' },
+  
 
     // Not found 40+000
 

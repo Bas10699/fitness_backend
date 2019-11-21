@@ -6,6 +6,7 @@ exports.validate_user_register=()=>{
     return(req,res,next)=>{
         if(req.body.user&&
             req.body.name&&
+            req.body.user_type&&
             req.body.last_name&&
             req.body.password&&
             req.body.email&&
@@ -60,6 +61,7 @@ exports.validate_user_login=()=>{
 
 exports.validate_token = ()=>{
     return (req,res,next)=>{
+        // console.log('GG',req.headers.authorization)
         if(!Boolean(req.headers["authorization"])){
             res.status(200).json({
                 success : false,
@@ -71,6 +73,7 @@ exports.validate_token = ()=>{
                 req.headers.authorization,
                 constanc.sign,
                 (err,decode)=>{
+                    console.log('GG',decode)
                     if(err){
                         res.status(200).json(errorMessage.err_required_fingerprint_token)
                     }
